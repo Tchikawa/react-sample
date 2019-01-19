@@ -3,8 +3,8 @@
 //jsはthisの役割がたくさんある
 //react lifecycle http://qiita.com/kawachi/items/092bfc281f88e3a6e456
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
 
 class App extends Component {
   //名前決まってる newした時に呼ばれる関数
@@ -20,7 +20,7 @@ class App extends Component {
     this.increment = this.increment.bind(this)//バインドしてあげないとthis.がわからない
   }
 
-  increment(){
+  increment() {
     //直接値を変えてはいけないのでsetState
     this.setState({
       //呼び出し元が
@@ -33,14 +33,11 @@ class App extends Component {
       //CSSなどのclassとjsのclassの名前がかぶるのでCSSなどのclassはclassNameという名前にする。
       //forもかぶるのでhtmlForになる。
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome</h2>
-        </div>
+        <Header />
         <p className="App-intro">
           {this.state.count}
         </p>
-        <button  onClick={this.increment} >increment</button>
+        <button onClick={this.increment} >increment</button>
       </div>
     );
   }

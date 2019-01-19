@@ -6,5 +6,5 @@ import registerServiceWorker from './registerServiceWorker';
 
 //rootに.Appの中身が入る
 //{}もかぶるので{{}}
-ReactDOM.render(<App foo={{foo : "bar"}} />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
