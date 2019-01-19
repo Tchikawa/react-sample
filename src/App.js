@@ -5,6 +5,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './Header';
+import Button from './Button';
+import DecrementButton from './DecrementButton'
 
 class App extends Component {
   //名前決まってる newした時に呼ばれる関数
@@ -16,15 +18,19 @@ class App extends Component {
     this.state = {
       count: 0
     }
-    //thisの中のthis(::increment と同じ)
-    this.increment = this.increment.bind(this)//バインドしてあげないとthis.がわからない
   }
 
-  increment() {
+  increment = () => {
     //直接値を変えてはいけないのでsetState
     this.setState({
       //呼び出し元が
       count: this.state.count + 1
+    })
+  }
+
+  decrement = () => {
+    this.setState({
+      count: this.state.count - 1
     })
   }
 
@@ -37,7 +43,8 @@ class App extends Component {
         <p className="App-intro">
           {this.state.count}
         </p>
-        <button onClick={this.increment} >increment</button>
+        <Button increment={this.increment} />
+        <DecrementButton decrement={this.decrement} />
       </div>
     );
   }
