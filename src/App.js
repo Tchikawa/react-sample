@@ -19,6 +19,12 @@ class App extends Component {
     }
   }
 
+  reset = () => {
+    this.setState({
+      count: 0
+    })
+  }
+
   increment = () => {
     this.setCount(1)
   }
@@ -44,6 +50,7 @@ class App extends Component {
         </p>
         <Button onClick={this.increment} text="increment" />
         <Button onClick={this.decrement} text="decrement" />
+        <Button onClick={this.reset} text="reset" />
       </div>
     );
   }
