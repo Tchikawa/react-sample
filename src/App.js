@@ -33,7 +33,7 @@ class App extends Component {
       //CSSなどのclassとjsのclassの名前がかぶるのでCSSなどのclassはclassNameという名前にする。
       //forもかぶるのでhtmlForになる。
       <div className="App">
-        <Header />
+        <Header title="WELCOME" />
         <p className="App-intro">
           {this.state.count}
         </p>
