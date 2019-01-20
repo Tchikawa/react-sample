@@ -6,17 +6,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './Header';
 import Button from './Button';
+import Input from './Input';
 
 class App extends Component {
-  //名前決まってる newした時に呼ばれる関数
-  constructor(props) {
-    //this.で使えるようにマッピング
-    //propsは他から使われる
-    //stateは自分自身が操作する
-    super(props)
-    this.state = {
-      count: 0
-    }
+  state = {
+    count: 0,
+    text: '',
   }
 
   reset = () => {
@@ -26,11 +21,11 @@ class App extends Component {
   }
 
   increment = () => {
-    this.setCount(1)
+    this.setCount(this.comvertToNumber())
   }
 
   decrement = () => {
-    this.setCount(-1)
+    this.setCount(-1 * this.comvertToNumber())
   }
 
   setCount = (n) => {
@@ -39,11 +34,29 @@ class App extends Component {
     })
   }
 
-  setColor = (n) => {
+  color = (n) => {
     if (10 <= n) {
       return { color: 'red' }
     } else if (-1 >= n) {
       return { color: 'blue' }
+    }
+  }
+
+  changeText = (e) => {
+    this.setState({
+      text: e.target.value
+    })
+  }
+
+  comvertToNumber = () => {
+    const regexp = /^\d+$/;
+    const { text } = this.state;
+    return regexp.test(text) ? parseInt(text, 10) : 1
+  }
+
+  changeCount = () => {
+    if (Number(this.state.text)) {
+      this.increment = this.increment()
     }
   }
 
@@ -53,12 +66,14 @@ class App extends Component {
       //forもかぶるのでhtmlForになる。
       <div className="App">
         <Header title="WELCOME" />
-        <p className="App-intro" style={this.setColor(this.state.count)}>
+        <p className="App-intro" style={this.color(this.state.count)}>
           {this.state.count}
         </p>
         <Button onClick={this.increment} text="increment" />
         <Button onClick={this.decrement} text="decrement" />
         <Button onClick={this.reset} text="reset" />
+        <p>{this.state.text}</p>
+        <Input onChange={this.changeText} />
       </div>
     );
   }
