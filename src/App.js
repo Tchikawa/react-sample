@@ -7,11 +7,13 @@ import './App.css';
 import Header from './Header';
 import Button from './Button';
 import Input from './Input';
+import Form from './Form';
 
 class App extends Component {
   state = {
     count: 0,
     text: '',
+    formText: ''
   }
 
   reset = () => {
@@ -60,6 +62,10 @@ class App extends Component {
     }
   }
 
+  changeFormText = (e) => {
+    this.setState({ formText: e.target.value })
+  }
+
   render() {
     return (
       //CSSなどのclassとjsのclassの名前がかぶるのでCSSなどのclassはclassNameという名前にする。
@@ -74,6 +80,7 @@ class App extends Component {
         <Button onClick={this.reset} text="reset" />
         <p>{this.state.text}</p>
         <Input onChange={this.changeText} />
+        <Form value={this.state.formText} onChange={this.changeFormText}/>
       </div>
     );
   }
