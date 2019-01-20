@@ -8,12 +8,14 @@ import Header from './Header';
 import Button from './Button';
 import Input from './Input';
 import Form from './Form';
+import List from './List';
 
 class App extends Component {
   state = {
     count: 0,
     text: '',
-    formText: ''
+    formText: '',
+    items: []
   }
 
   reset = () => {
@@ -66,6 +68,13 @@ class App extends Component {
     this.setState({ formText: e.target.value })
   }
 
+  handleClickFormButton = () => {
+    this.setState({
+      items: this.state.items.concat(this.state.formText),
+      formText: ''
+    })
+  }
+
   render() {
     return (
       //CSSなどのclassとjsのclassの名前がかぶるのでCSSなどのclassはclassNameという名前にする。
@@ -80,7 +89,8 @@ class App extends Component {
         <Button onClick={this.reset} text="reset" />
         <p>{this.state.text}</p>
         <Input onChange={this.changeText} />
-        <Form value={this.state.formText} onChange={this.changeFormText}/>
+        <Form value={this.state.formText} onChange={this.changeFormText} onClick={this.handleClickFormButton} />
+        <List items={this.state.items} />
       </div>
     );
   }
