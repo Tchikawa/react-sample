@@ -39,13 +39,21 @@ class App extends Component {
     })
   }
 
+  setColor = (n) => {
+    if (10 <= n) {
+      return { color: 'red' }
+    } else if (-1 >= n) {
+      return { color: 'blue' }
+    }
+  }
+
   render() {
     return (
       //CSSなどのclassとjsのclassの名前がかぶるのでCSSなどのclassはclassNameという名前にする。
       //forもかぶるのでhtmlForになる。
       <div className="App">
         <Header title="WELCOME" />
-        <p className="App-intro">
+        <p className="App-intro" style={this.setColor(this.state.count)}>
           {this.state.count}
         </p>
         <Button onClick={this.increment} text="increment" />
