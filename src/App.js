@@ -1,6 +1,6 @@
-//{}なし:デフォルトエクスポート(引数みたいなもの)どんな名前でもOK
-//{}あり:その名前でないと取ってこれない
-//jsはthisの役割がたくさんある
+//{}なし:default export(1つのコンポーネントに1つだけ定義できる)どんな名前でもOK
+//{}あり:exportした名前出ないととれない
+//
 //react lifecycle http://qiita.com/kawachi/items/092bfc281f88e3a6e456
 import React, { Component } from 'react';
 import './App.css';
