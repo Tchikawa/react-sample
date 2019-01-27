@@ -8,7 +8,7 @@ class Form extends Component {
           onChange={this.props.onChange}
           value={this.props.value}
         />
-        <button onClick={this.props.onClick}>add</button>
+        <button onClick={this.props.onClick}>{this.props.text}</button>
       </div>
     )
   }
