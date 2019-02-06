@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import React from 'react';
 import Input from './Input';
 import Form from './Form';
 import List from './List';
 import { bindActionCreators } from '../../../../Library/Caches/typescript/3.2/node_modules/redux';
-import { changeText, convertToNumber, changeCount, changeFormText, handleClickFormButton } from '../actions'
+import { changeText, changeFormText, handleClickFormButton } from '../actions'
 
 const InputForm = (state) => {
 
@@ -44,8 +44,6 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       changeText,
-      convertToNumber,
-      changeCount,
       changeFormText,
       handleClickFormButton
     }

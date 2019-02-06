@@ -6,8 +6,6 @@ export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const RESET = 'RESET';
 export const CHANGE_TEXT = 'CHANGE_TEXT';
-export const CONVERT_TO_NUMBER = 'CONVERT_TO_NUMBER';
-export const CHANGE_COUNT = 'CHANGE_COUNT';
 export const CHANGE_FORM_TEXT = 'CHANGE_FORM_TEXT';
 export const HANDLE_CLICK_FORM_BUTTON = 'HANDLE_CLICK_FORM_BUTTON';
 export const CHANGE_ZIP_CODE = 'CHANGE_ZIP_CODE';
@@ -26,17 +24,9 @@ export const decrement = (count) => {
 export const reset = () => {
   return { type: RESET }
 }
-/**/
+
 export const changeText = (text) => {
   return { type: CHANGE_TEXT, text }
-}
-
-export const convertToNumber = (regexp, text) => {
-  return { type: CONVERT_TO_NUMBER, regexp, text }
-}
-
-export const changeCount = (text) => {
-  return { type: CHANGE_COUNT, text }
 }
 
 export const changeFormText = (formText) => {
@@ -46,7 +36,7 @@ export const changeFormText = (formText) => {
 export const handleClickFormButton = (items) => {
   return { type: HANDLE_CLICK_FORM_BUTTON, items }
 }
-/**/
+
 export const changeZipCode = (zipCode) => {
   return { type: CHANGE_ZIP_CODE, zipCode }
 }

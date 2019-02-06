@@ -1,7 +1,5 @@
 import {
   CHANGE_TEXT,
-  CONVERT_TO_NUMBER,
-  CHANGE_COUNT,
   CHANGE_FORM_TEXT,
   HANDLE_CLICK_FORM_BUTTON
 } from '../actions';
