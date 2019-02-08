@@ -1,30 +1,8 @@
-import { changeFullAddress, changeIsLoading, changeZipCode, changeErrText } from '../actions';
-import { connect } from 'react-redux';
 import React from 'react';
 import Form from './Form';
-import { bindActionCreators } from 'redux'
-import Axios from 'axios';
+import PropTypes from 'prop-types'
 
-const SearchZipCode = (state) => {
-  const { zipCode, errText, fullAddress, isLoading, changeZipCode, changeFullAddress, changeIsLoading, changeErrText } = state;
-
-  const changeFormText = (e) => {
-    changeZipCode(e.target.value)
-  }
-
-  const searchZipCode = () => {
-    changeIsLoading(true)
-    Axios({
-      method: 'GET',
-      url: 'https://api.zipaddress.net/',
-      params: { zipcode: zipCode }
-    }).then((response) => {
-      response.data.code === 200 ?
-        changeFullAddress(response.data.data.fullAddress) : changeErrText(response.data.message)
-    })
-  }
-
-
+const SearchZipCode = ({ errText, zipCode, isLoading, fullAddress, changeFormText, searchZipCode }) => {
   return (
     <div>
       {errText}
@@ -38,20 +16,13 @@ const SearchZipCode = (state) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    zipCode: state.SearchZipCode.zipCode,
-    errText: state.SearchZipCode.errText,
-    fullAddress: state.SearchZipCode.fullAddress,
-    isLoading: state.SearchZipCode.isLoading,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(
-    { changeFullAddress, changeIsLoading, changeZipCode, changeErrText }, dispatch)
+SearchZipCode.propTypes = {
+  errText: PropTypes.string.isRequired,
+  zipCode: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  fullAddress: PropTypes.string.isRequired,
+  changeFormText: PropTypes.func.isRequired,
+  searchZipCode: PropTypes.func.isRequired,
 }
 
-export default connect(
-  mapStateToProps, mapDispatchToProps
-)(SearchZipCode);
+export default SearchZipCode;

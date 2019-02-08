@@ -12,6 +12,7 @@ export const CHANGE_ZIP_CODE = 'CHANGE_ZIP_CODE';
 export const CHANGE_FULL_ADDRESS = 'CHANGE_FULL_ADDRESS';
 export const CHANGE_IS_LOADING = 'CHANGE_IS_LOADING';
 export const CHANGE_ERR_TEXT = 'CHANGE_ERR_TEXT';
+export const FULLADDRESS_FETCH_REQUESTED = 'FULLADDRESS_FETCH_REQUESTED';
 
 export const increment = (count) => {
   return { type: INCREMENT, count }
@@ -52,3 +53,7 @@ export const changeIsLoading = (isLoading) => {
 export const changeErrText = (errText) => {
   return { type: CHANGE_ERR_TEXT, errText }
 }
+
+export const fullAddressFetchRequested = () => {
+  return { type: FULLADDRESS_FETCH_REQUESTED }
+};

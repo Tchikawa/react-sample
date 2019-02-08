@@ -5,7 +5,7 @@ import '../App.css';
 import Header from '../Header';
 import InputForm from './InputForm';
 import Counter from './Counter'
-import SearchZipCode from './SearchZipCode';
+import SearchZipCode from '../containers/SearchZipCode';
 
 export default function App() {
   return (

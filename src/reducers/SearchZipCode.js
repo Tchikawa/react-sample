@@ -1,4 +1,4 @@
-import { CHANGE_ZIP_CODE, CHANGE_FULL_ADDRESS, CHANGE_ERR_TEXT, CHANGE_IS_LOADING } from '../actions';
+import { CHANGE_ZIP_CODE, CHANGE_FULL_ADDRESS, CHANGE_ERR_TEXT, CHANGE_IS_LOADING, FULLADDRESS_FETCH_REQUESTED } from '../actions';
 
 const initialState = {
   zipCode: '',
@@ -33,6 +33,8 @@ const SearchZipCode = (state = initialState, action) => {
       return Object.assign({}, state, { isLoading: true })
     case CHANGE_ZIP_CODE:
       return Object.assign({}, state, { zipCode: action.zipCode })
+    case FULLADDRESS_FETCH_REQUESTED:
+      return state
     default:
       return state
   }
