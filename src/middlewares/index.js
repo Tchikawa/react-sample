@@ -3,7 +3,7 @@ import getFullAddress from '../services'
 import { FULLADDRESS_FETCH_REQUESTED } from '../actions';
 
 function* fetchFullAddress() {
-  const zipCode = yield select((state) => { console.log(state.SearchZipCode.zipCode); return state.SearchZipCode.zipCode })
+  const zipCode = yield select((state) => { return state.SearchZipCode.zipCode })
   //関数実行
   const { fullAddress, errText } = yield call(getFullAddress, zipCode);
   if (fullAddress) {

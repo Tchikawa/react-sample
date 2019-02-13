@@ -13,6 +13,8 @@ export const CHANGE_FULL_ADDRESS = 'CHANGE_FULL_ADDRESS';
 export const CHANGE_IS_LOADING = 'CHANGE_IS_LOADING';
 export const CHANGE_ERR_TEXT = 'CHANGE_ERR_TEXT';
 export const FULLADDRESS_FETCH_REQUESTED = 'FULLADDRESS_FETCH_REQUESTED';
+export const CHANGE_CHARACTER = 'CHANGE_CHARACTER';
+
 
 export const increment = (count) => {
   return { type: INCREMENT, count }
@@ -57,3 +59,7 @@ export const changeErrText = (errText) => {
 export const fullAddressFetchRequested = () => {
   return { type: FULLADDRESS_FETCH_REQUESTED }
 };
+
+export const changeCharacter = (character)=>{
+  return {type: CHANGE_CHARACTER, character}
+}
