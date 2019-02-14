@@ -11,7 +11,7 @@ const ChangeCharacter = (state = initialState, action) => {
         {character: action.character}
       )
     default:
-      return initialState
+      return state
   }
 }
 
